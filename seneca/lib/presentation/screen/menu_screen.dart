@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:seneca/widgets/exportWidget.dart';
+import 'package:seneca/widgets/background.dart';
 
 class MenuScreen extends StatelessWidget {
   const MenuScreen({super.key});
@@ -48,50 +48,38 @@ class MenuScreen extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                             SizedBox(
-                              width: size.width*0.1,
-                            ),
-                            _buildImageWithText(
-                              'assets/sombrero.png',
-                              'Alumnado del centro',
-                            ),
-                          SizedBox(
-                              width: size.width*0.1,
-                            ),
-                            _buildImageWithText(
-                              'assets/profesor.png',
-                              'Personal del centro',
-                            ),
                             SizedBox(
-                              width: size.width*0.05,
+                              width: size.width * 0.1,
                             ),
-                            _buildImageWithText(
-                              'assets/covid.png',
-                              'Información Covid',
+                            _buildImageWithText('assets/sombrero.png',
+                                'Alumnado del centro', context),
+                            SizedBox(
+                              width: size.width * 0.1,
                             ),
+                            _buildImageWithText('assets/profesor.png',
+                                'Personal del centro', context),
+                            SizedBox(
+                              width: size.width * 0.05,
+                            ),
+                            _buildImageWithText('assets/covid.png',
+                                'Información Covid', context),
                           ],
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                             SizedBox(
-                              width: size.width*0.1,
-                              height: size.height*0.2,
+                            SizedBox(
+                              width: size.width * 0.1,
+                              height: size.height * 0.2,
                             ),
-                           _buildImageWithText(
-                                'assets/campana.png',
-                                'Tablón de anuncios',
-                              ),
-                             SizedBox(
-                              width: size.width*0.1,
-                              height: size.height*0.2,
+                            _buildImageWithText('assets/campana.png',
+                                'Tablón de anuncios', context),
+                            SizedBox(
+                              width: size.width * 0.1,
+                              height: size.height * 0.2,
                             ),
-                            
-                               _buildImageWithText(
-                                'assets/calendario.png',
-                                'Calendario escolar',
-                              ),
-                            
+                            _buildImageWithText('assets/calendario.png',
+                                'Calendario escolar', context),
                           ],
                         ),
                       ],
@@ -114,7 +102,6 @@ class MenuScreen extends StatelessWidget {
                         label: 'Inicio',
                         labelColor: Colors.grey,
                         iconColor: Colors.blue,
-                        
                       ),
                       IconItem(
                         icon: Icons.access_time_sharp,
@@ -145,7 +132,9 @@ class MenuScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildImageWithText(String imagePath, String text) {
+  Widget _buildImageWithText(
+      String imagePath, String text, BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Container(
       padding: const EdgeInsets.all(0), // Agrega un padding
 
@@ -153,8 +142,8 @@ class MenuScreen extends StatelessWidget {
         children: [
           Image.asset(
             imagePath,
-            height: 50,
-            width: 50,
+            height: size.height * 0.1,
+            width: size.width * 0.1,
           ),
           Text(
             text,
@@ -167,6 +156,7 @@ class MenuScreen extends StatelessWidget {
     );
   }
 }
+
 class IconItem extends StatelessWidget {
   final IconData icon;
   final String label;

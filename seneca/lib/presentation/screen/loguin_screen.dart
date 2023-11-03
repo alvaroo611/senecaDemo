@@ -49,7 +49,7 @@ class Content extends StatefulWidget {
 class _ContentState extends State<Content> {
   final TextEditingController userController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -112,14 +112,17 @@ class _ContentState extends State<Content> {
                     }
                   },
                   child: const Text('Entrar'),
-                ),SizedBox(height: size.height*0.05,),
-                 const Text(
+                ),
+                SizedBox(
+                  height: size.height * 0.05,
+                ),
+                const Text(
                   'No recuerdo mi contraseña',
                   style: TextStyle(
-                    color: Colors.white, // Puedes ajustar el color según tus preferencias
+                    color: Colors
+                        .white, // Puedes ajustar el color según tus preferencias
                   ),
                 ),
-                
               ],
             ),
           ),
@@ -175,10 +178,10 @@ class LogoVersion extends StatelessWidget {
           Row(
             children: [
               Container(
-                height: size.height * 0.2,
-                width: size.width * 0.2,
+                height: size.height * 0.3,
+                width: size.width * 0.3,
                 margin: EdgeInsets.only(
-                    left: size.width * 0.4, right: size.width * 0.4),
+                    left: size.width * 0.3, right: size.width * 0.3),
                 child: Image.asset(
                   "assets/iconoJunta.png",
                   fit: BoxFit.contain,
